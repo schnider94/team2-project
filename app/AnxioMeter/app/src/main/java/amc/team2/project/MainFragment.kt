@@ -44,7 +44,7 @@ class MainFragment : Fragment() {
         val deviceTextView: TextView = view.findViewById(R.id.connected_device)
         val deviceInfo = getDeviceInfo(false)
         if (deviceInfo.exists) {
-            deviceTextView.text = "Connected Device: ${deviceInfo.name} - ${deviceInfo.address}"
+            deviceTextView.text = "Connected Device: \n${deviceInfo.name} - ${deviceInfo.address}"
         }
     }
 
@@ -81,6 +81,8 @@ class MainFragment : Fragment() {
             activity?.startService(backgroundIntent)
             backgroundServiceIsRunning = true
             updateBackgroundButton()
+        } else {
+            // TODO: stop background service with broadcast
         }
     }
 

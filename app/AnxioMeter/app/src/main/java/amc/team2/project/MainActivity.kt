@@ -3,11 +3,6 @@ package amc.team2.project
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.support.v7.app.AppCompatActivity
-import android.widget.TextView
-import android.content.Context.ACTIVITY_SERVICE
-import android.support.v4.content.ContextCompat.getSystemService
-import android.app.ActivityManager
-import android.content.Context
 
 
 class MainActivity : AppCompatActivity() {

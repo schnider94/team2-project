@@ -4,22 +4,175 @@
                                              xmlns:tools="http://schemas.android.com/tools"
                                              android:layout_width="match_parent"
                                              android:layout_height="match_parent"
-                                             tools:context=".MainFragment">
-
+                                             tools:context=".MainFragment" android:background="#003F51B5">
 
     <Button
             android:text="@string/start_background"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/start_background" app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintVertical_bias="0.499"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/white_button"
+            android:layout_width="250dp"
+            android:layout_height="55dp"
+            android:id="@+id/start_background"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginBottom="80dp" android:textStyle="bold"
+            android:textSize="18sp"/>
+
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/connected_device"
-            app:layout_constraintTop_toBottomOf="@+id/start_background" android:layout_marginTop="8dp"
             android:text="@string/connected_device" app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintHorizontal_bias="0.5" app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginBottom="8dp" app:layout_constraintBottom_toTopOf="@+id/start_background"
+            android:textStyle="bold" android:textColor="#FFFFFF" android:textSize="16sp"
+            android:textAlignment="center"/>
+
+
+    <android.support.constraint.ConstraintLayout
+            android:layout_width="300dp"
+            android:layout_height="70dp"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="32dp"
+            android:id="@+id/anxiety_level_container"
+            android:background="@drawable/device_recycler_bgr"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintEnd_toEndOf="parent">
+
+        <ImageView
+                android:src="@drawable/anxiety"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:id="@+id/anxiety_level_image"
+                app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="10dp"
+                app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="10dp"
+                app:layout_constraintBottom_toBottomOf="parent" android:layout_marginBottom="10dp"
+        />
+        <TextView
+                android:text="Anxiety Level:"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="23dp"
+                android:layout_marginBottom="23dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:id="@+id/anxiety_text"
+                app:layout_constraintStart_toEndOf="@+id/anxiety_level_image"
+                android:layout_marginStart="8dp"
+                app:layout_constraintEnd_toStartOf="@+id/anxiety_level_number"
+                android:layout_marginEnd="8dp"/>
+        <TextView
+                android:text="N/A"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/anxiety_level_number"
+                android:textAlignment="center" android:textSize="30sp"
+                android:layout_marginEnd="48dp" app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+                android:textStyle="bold"/>
+        <TextView
+                android:text="level"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/level"
+                app:layout_constraintStart_toEndOf="@+id/anxiety_level_number"
+                app:layout_constraintBottom_toBottomOf="@+id/anxiety_level_number" android:layout_marginBottom="5dp"/>
+    </android.support.constraint.ConstraintLayout>
+    <android.support.constraint.ConstraintLayout
+            android:layout_width="300dp"
+            android:layout_height="70dp"
+            android:id="@+id/heartrate_container"
+            android:background="@drawable/device_recycler_bgr"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="0.495"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/anxiety_level_container">
+
+        <ImageView
+                android:src="@drawable/heart_rate"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:id="@+id/heart_rate_image"
+                app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="10dp"
+                app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="10dp"
+                app:layout_constraintBottom_toBottomOf="parent" android:layout_marginBottom="10dp"
+        />
+        <TextView
+                android:text="Heart rate:"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="23dp"
+                android:layout_marginBottom="23dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:id="@+id/textView5" app:layout_constraintStart_toEndOf="@+id/heart_rate_image"
+                android:layout_marginStart="8dp"
+                app:layout_constraintEnd_toStartOf="@+id/heart_rate_number" android:layout_marginEnd="8dp"/>
+        <TextView
+                android:text="N/A"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/heart_rate_number"
+                android:textAlignment="center" android:textSize="30sp"
+                android:layout_marginEnd="48dp" app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+                android:textStyle="bold"/>
+        <TextView
+                android:text="bpm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/bpm"
+                app:layout_constraintStart_toEndOf="@+id/heart_rate_number"
+                app:layout_constraintBottom_toBottomOf="@+id/heart_rate_number" android:layout_marginBottom="5dp"/>
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.ConstraintLayout
+            android:layout_width="300dp"
+            android:layout_height="70dp"
+            android:id="@+id/skin_response_container"
+            android:background="@drawable/device_recycler_bgr"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/heartrate_container" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="0.5" app:layout_constraintEnd_toEndOf="parent">
+
+        <ImageView
+                android:src="@drawable/skin_response"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:id="@+id/skin_response_image"
+                app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="10dp"
+                app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="10dp"
+                app:layout_constraintBottom_toBottomOf="parent" android:layout_marginBottom="10dp"/>
+
+        <TextView
+                android:text="Skin response:"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="23dp"
+                android:layout_marginBottom="23dp" app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/skin_response_image" android:layout_marginStart="8dp"
+                app:layout_constraintEnd_toStartOf="@+id/skin_response_number" android:layout_marginEnd="8dp"/>
+
+        <TextView
+                android:text="N/A"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/skin_response_number"
+                android:layout_marginEnd="48dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:textAlignment="center"
+                android:textSize="30sp" app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent" android:textStyle="bold"/>
+        <TextView
+                android:text="units"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/units"
+                app:layout_constraintBottom_toBottomOf="@+id/skin_response_number"
+                app:layout_constraintStart_toEndOf="@+id/skin_response_number"
+                android:layout_marginBottom="5dp"/>
+    </android.support.constraint.ConstraintLayout>
+
 </android.support.constraint.ConstraintLayout>
