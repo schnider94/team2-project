@@ -15,4 +15,11 @@
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintVertical_bias="0.499"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintEnd_toEndOf="parent"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/connected_device"
+            app:layout_constraintTop_toBottomOf="@+id/start_background" android:layout_marginTop="8dp"
+            android:text="@string/connected_device" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="0.5" app:layout_constraintEnd_toEndOf="parent"/>
 </android.support.constraint.ConstraintLayout>

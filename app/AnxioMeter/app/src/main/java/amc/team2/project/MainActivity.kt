@@ -12,6 +12,20 @@ import android.content.Context
 
 class MainActivity : AppCompatActivity() {
 
+    private lateinit var bottomNavigationView: BottomNavigationView
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+        bottomNavigationView = findViewById(R.id.nav_view)
+        bottomNavigationView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)
+
+        if (savedInstanceState == null) {
+            val fragment = MainFragment()
+            supportFragmentManager.beginTransaction().replace(R.id.container, fragment, fragment.javaClass.simpleName).commit()
+        }
+    }
+
     private val onNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId) {
             R.id.navigation_home -> {
@@ -33,15 +47,7 @@ class MainActivity : AppCompatActivity() {
         false
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        val navView: BottomNavigationView = findViewById(R.id.nav_view)
-        navView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)
-
-        if (savedInstanceState == null) {
-            val fragment = MainFragment()
-            supportFragmentManager.beginTransaction().replace(R.id.container, fragment, fragment.javaClass.simpleName).commit()
-        }
+    fun openTab(id: Int) {
+        bottomNavigationView.selectedItemId = id
     }
 }

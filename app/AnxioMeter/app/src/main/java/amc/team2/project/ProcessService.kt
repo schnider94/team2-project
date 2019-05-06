@@ -1,17 +1,22 @@
 package amc.team2.project
 
 import android.app.IntentService
+import android.bluetooth.*
+import android.bluetooth.BluetoothAdapter.STATE_CONNECTED
+import android.bluetooth.BluetoothAdapter.STATE_DISCONNECTED
 import android.content.Intent
 import android.util.Log
 import android.support.v4.content.LocalBroadcastManager
 import android.content.BroadcastReceiver
+import android.content.ContentValues.TAG
 import android.content.Context
 import android.content.IntentFilter
 import java.util.*
-import kotlin.concurrent.schedule
 
 
 class ProcessService : IntentService("ProcessService") {
+
+    private var isRunning = false
 
     companion object {
         val ACTION_PING = ProcessService::class.simpleName + ".PING"
@@ -35,13 +40,14 @@ class ProcessService : IntentService("ProcessService") {
     private fun mainLoop(deviceName: String, deviceAddress: String) {
         Log.d(this::class.simpleName, "Name: $deviceName with Address: $deviceAddress")
 
-        // Temporary timer to simulate processing
-        Timer().schedule(5000) {
-            splashScreen(2)
-            // sendAnxietyAlarm(1)
-        }
+        val device = getBLEAdapter()!!.getRemoteDevice(deviceAddress)
+        val gatt = device.connectGatt(this, false, bleCallback)
 
-        while(true) {}
+        isRunning = true
+        while(isRunning) {}
+
+        gatt.disconnect()
+        gatt.close()
     }
 
     // Open App directly
@@ -74,6 +80,55 @@ class ProcessService : IntentService("ProcessService") {
                 val manager = LocalBroadcastManager.getInstance(applicationContext)
                 manager.sendBroadcast(Intent(ACTION_PONG))
             }
+        }
+    }
+
+    fun process(characteristic: BluetoothGattCharacteristic) {
+        // TODO: process Sensor data
+        Log.d(TAG, "HIER")
+        splashScreen(1)
+        // sendAnxietyAlarm(1)
+    }
+
+    private var connectionState = STATE_DISCONNECTED
+
+    private val bleCallback = object: BluetoothGattCallback() {
+        override fun onConnectionStateChange(
+            gatt: BluetoothGatt,
+            status: Int,
+            newState: Int
+        ) {
+            when (newState) {
+                BluetoothProfile.STATE_CONNECTED -> {
+                    connectionState = STATE_CONNECTED
+                    Log.i(TAG, "Connected to GATT server.")
+                    Log.i(TAG, "Attempting to start service discovery: " + gatt.discoverServices())
+                }
+                BluetoothProfile.STATE_DISCONNECTED -> {
+                    connectionState = STATE_DISCONNECTED
+                    Log.i(TAG, "Disconnected from GATT server.")
+                    isRunning = false
+                }
+            }
+        }
+
+        // Result of a characteristic read operation
+        override fun onCharacteristicRead(
+            gatt: BluetoothGatt,
+            characteristic: BluetoothGattCharacteristic,
+            status: Int
+        ) {
+            Log.d(TAG, characteristic.toString())
+            when (status) {
+                BluetoothGatt.GATT_SUCCESS -> {
+                    process(characteristic)
+                }
+            }
+        }
+
+        override fun onServicesDiscovered(gatt: BluetoothGatt?, status: Int) {
+            super.onServicesDiscovered(gatt, status)
+            Log.d(TAG, gatt!!.services.size.toString())
         }
     }
 }
