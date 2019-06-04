@@ -11,18 +11,30 @@ import android.content.BroadcastReceiver
 import android.content.ContentValues.TAG
 import android.content.Context
 import android.content.IntentFilter
+import java.lang.Math.ceil
 import java.util.*
+import kotlin.concurrent.timerTask
 
 
 class ProcessService : IntentService("ProcessService") {
 
     private var isRunning = false
 
+    private val SERVICE_ID      = UUID.fromString("00000000-0000-0000-0000-00000000337d")
+    private val GSR_ID          = UUID.fromString("00001a11-0000-1000-8000-00805f9b34fb")
+    private val HEARTRATE_ID    = UUID.fromString("00001a12-0000-1000-8000-00805f9b34fb")
+
+    private var currentLevel = 0
+    private var currentGSR = 0
+    private var currentHeartRate = 0
+
+    private var characteristics: List<BluetoothGattCharacteristic> = ArrayList()
+
     companion object {
         val ACTION_PING = ProcessService::class.simpleName + ".PING"
         val ACTION_PONG = ProcessService::class.simpleName + ".PONG"
+        val ACTION_VALUES = ProcessService::class.simpleName + ".VALUES"
     }
-
 
     override fun onHandleIntent(workIntent: Intent) {
         LocalBroadcastManager.getInstance(this).registerReceiver(mReceiver, IntentFilter(ACTION_PING))
@@ -44,10 +56,24 @@ class ProcessService : IntentService("ProcessService") {
         val gatt = device.connectGatt(this, false, bleCallback)
 
         isRunning = true
-        while(isRunning) {}
+        Timer().scheduleAtFixedRate(
+            timerTask {
+                loop(gatt)
 
-        gatt.disconnect()
-        gatt.close()
+                if (!isRunning) {
+                    gatt.disconnect()
+                    gatt.close()
+                    this.cancel()
+                }
+            }, 0, 500
+        )
+        while(isRunning);
+    }
+
+    private fun loop(gatt: BluetoothGatt) {
+        for (characteristic in this.characteristics) {
+            gatt.readCharacteristic(characteristic)
+        }
     }
 
     // Open App directly
@@ -72,6 +98,15 @@ class ProcessService : IntentService("ProcessService") {
         this.stopSelf()
     }
 
+    private fun sendValuesToScreen(heartrate: Int, gsr: Int, level: Int) {
+        val manager = LocalBroadcastManager.getInstance(applicationContext)
+        val intent = Intent(ACTION_VALUES)
+        intent.putExtra("level", level)
+        intent.putExtra("gsr", gsr)
+        intent.putExtra("heartrate", heartrate)
+        manager.sendBroadcast(intent)
+    }
+
     // PING/PONG
     private val mReceiver = object : BroadcastReceiver() {
         override fun onReceive(context: Context, intent: Intent) {
@@ -84,9 +119,27 @@ class ProcessService : IntentService("ProcessService") {
     }
 
     fun process(characteristic: BluetoothGattCharacteristic) {
+        val value = characteristic.getIntValue(BluetoothGattCharacteristic.FORMAT_UINT16, 0)
+        when (characteristic.uuid) {
+            GSR_ID -> {
+                currentGSR = value
+                Log.d(TAG, "GSR: $value")
+            }
+            HEARTRATE_ID -> {
+                currentHeartRate = value
+                Log.d(TAG, "HR: $value")
+            }
+        }
+
         // TODO: process Sensor data
-        Log.d(TAG, "HIER")
-        splashScreen(1)
+        if (currentHeartRate != 0) {
+            currentLevel = currentGSR / currentHeartRate
+        } else {
+            currentLevel = 0
+        }
+        sendValuesToScreen(currentHeartRate, currentGSR, currentLevel)
+
+        // splashScreen(1)
         // sendAnxietyAlarm(1)
     }
 
@@ -112,23 +165,28 @@ class ProcessService : IntentService("ProcessService") {
             }
         }
 
+        override fun onServicesDiscovered(gatt: BluetoothGatt?, status: Int) {
+            super.onServicesDiscovered(gatt, status)
+            for (service in gatt!!.services) {
+                Log.d(TAG, service.uuid.toString())
+                if (service.uuid == SERVICE_ID) {
+                    characteristics = service.characteristics
+                }
+            }
+        }
+
         // Result of a characteristic read operation
         override fun onCharacteristicRead(
             gatt: BluetoothGatt,
             characteristic: BluetoothGattCharacteristic,
             status: Int
         ) {
-            Log.d(TAG, characteristic.toString())
+            // Log.d(TAG, characteristic.uuid.toString())
             when (status) {
                 BluetoothGatt.GATT_SUCCESS -> {
                     process(characteristic)
                 }
             }
-        }
-
-        override fun onServicesDiscovered(gatt: BluetoothGatt?, status: Int) {
-            super.onServicesDiscovered(gatt, status)
-            Log.d(TAG, gatt!!.services.size.toString())
         }
     }
 }

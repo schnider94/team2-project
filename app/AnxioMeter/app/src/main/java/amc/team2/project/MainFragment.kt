@@ -4,6 +4,7 @@ package amc.team2.project
 import android.app.AlertDialog
 import android.app.Dialog
 import android.content.*
+import android.content.ContentValues.TAG
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.util.Log
@@ -30,6 +31,10 @@ class MainFragment : Fragment() {
     private var startBackgroundButton: Button? = null
     private var broadcastManager: LocalBroadcastManager? = null
 
+    private lateinit var anxietyLevelLabel: TextView
+    private lateinit var heartrateLabel: TextView
+    private lateinit var skinresponseLabel: TextView
+
     override fun onCreateView(inflater: LayoutInflater,
                               container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -40,6 +45,10 @@ class MainFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         startBackgroundButton = view.findViewById(R.id.start_background)
         startBackgroundButton?.setOnClickListener(startBackground)
+
+        anxietyLevelLabel = view.findViewById(R.id.anxiety_level_number)
+        heartrateLabel = view.findViewById(R.id.heart_rate_number)
+        skinresponseLabel = view.findViewById(R.id.skin_response_number)
 
         val deviceTextView: TextView = view.findViewById(R.id.connected_device)
         val deviceInfo = getDeviceInfo(false)
@@ -128,6 +137,7 @@ class MainFragment : Fragment() {
     private fun checkForBackgroundService() {
         backgroundServiceIsRunning = false
         broadcastManager?.registerReceiver(mReceiver, IntentFilter(ProcessService.ACTION_PONG))
+        broadcastManager?.registerReceiver(mReceiver, IntentFilter(ProcessService.ACTION_VALUES))
         broadcastManager?.sendBroadcast(Intent(ProcessService.ACTION_PING))
     }
 
@@ -136,6 +146,15 @@ class MainFragment : Fragment() {
             if (intent.action == ProcessService.ACTION_PONG) {
                 backgroundServiceIsRunning = true
                 // Log.v(this@MainFragment::class.simpleName, "Received Pong")
+            }
+            if (intent.action == ProcessService.ACTION_VALUES) {
+                val level = intent.getIntExtra("level", 0)
+                val gsr = intent.getIntExtra("gsr", 0)
+                val heartrate = intent.getIntExtra("heartrate", 0)
+
+                anxietyLevelLabel.text = level.toString()
+                skinresponseLabel.text = gsr.toString()
+                heartrateLabel.text = heartrate.toString()
             }
         }
     }
