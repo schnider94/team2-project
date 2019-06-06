@@ -1,0 +1,809 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		EEC10FD122A6192400F188DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC10FD022A6192400F188DA /* AppDelegate.swift */; };
+		EEC10FD322A6192400F188DA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC10FD222A6192400F188DA /* ViewController.swift */; };
+		EEC10FD522A6192600F188DA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEC10FD422A6192600F188DA /* Assets.xcassets */; };
+		EEC10FD822A6192600F188DA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EEC10FD622A6192600F188DA /* Main.storyboard */; };
+		EEC10FE422A6192600F188DA /* AnxietyCollectorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC10FE322A6192600F188DA /* AnxietyCollectorTests.swift */; };
+		EEC10FEF22A6192600F188DA /* AnxietyCollectorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC10FEE22A6192600F188DA /* AnxietyCollectorUITests.swift */; };
+		EEC10FFD22A61AD700F188DA /* GATTClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC10FFC22A61AD700F188DA /* GATTClient.swift */; };
+		EEC1106A22A63EAE00F188DA /* VideoRuns.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC1106922A63EAE00F188DA /* VideoRuns.swift */; };
+		EEC1106D22A6411C00F188DA /* MainCollectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC1106B22A6411C00F188DA /* MainCollectionController.swift */; };
+		EEC110A322A647BC00F188DA /* 5006.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = EEC1106F22A647B900F188DA /* 5006.mp4 */; };
+		EEC110A422A647BC00F188DA /* 4007.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = EEC1107022A647B900F188DA /* 4007.mp4 */; };
+		EEC110A522A647BC00F188DA /* 3001.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = EEC1107122A647B900F188DA /* 3001.mp4 */; };
+		EEC110A622A647BC00F188DA /* 2000.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = EEC1107222A647B900F188DA /* 2000.mp4 */; };
+		EEC110A722A647BC00F188DA /* 3000.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = EEC1107322A647B900F188DA /* 3000.mp4 */; };
+		EEC110A822A647BC00F188DA /* 4000.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = EEC1107422A647B900F188DA /* 4000.mp4 */; };
+		EEC110A922A647BC00F188DA /* 6001.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = EEC1107522A647B900F188DA /* 6001.mp4 */; };
+		EEC110AA22A647BC00F188DA /* 5002.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = EEC1107622A647B900F188DA /* 5002.mp4 */; };
+		EEC110AB22A647BC00F188DA /* 1006.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = EEC1107722A647B900F188DA /* 1006.mp4 */; };
+		EEC110AC22A647BC00F188DA /* 3003.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = EEC1107822A647BA00F188DA /* 3003.mp4 */; };
+		EEC110AD22A647BC00F188DA /* 4008.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = EEC1107922A647BA00F188DA /* 4008.mp4 */; };
+		EEC110AE22A647BC00F188DA /* 1008.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = EEC1107A22A647BA00F188DA /* 1008.mp4 */; };
+		EEC110AF22A647BC00F188DA /* 2009.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = EEC1107B22A647BA00F188DA /* 2009.mp4 */; };
+		EEC110B022A647BC00F188DA /* 4004.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = EEC1107C22A647BA00F188DA /* 4004.mp4 */; };
+		EEC110B122A647BC00F188DA /* 2007.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = EEC1107D22A647BA00F188DA /* 2007.mp4 */; };
+		EEC110B222A647BC00F188DA /* 5008.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = EEC1107E22A647BA00F188DA /* 5008.mp4 */; };
+		EEC110B322A647BC00F188DA /* 4002.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = EEC1107F22A647BA00F188DA /* 4002.mp4 */; };
+		EEC110B422A647BC00F188DA /* 2008.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = EEC1108022A647BA00F188DA /* 2008.mp4 */; };
+		EEC110B522A647BC00F188DA /* 3008.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = EEC1108122A647BA00F188DA /* 3008.mp4 */; };
+		EEC110B622A647BC00F188DA /* 2001.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = EEC1108222A647BA00F188DA /* 2001.mp4 */; };
+		EEC110B722A647BC00F188DA /* 1001.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = EEC1108322A647BA00F188DA /* 1001.mp4 */; };
+		EEC110B822A647BC00F188DA /* 1002.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = EEC1108422A647BA00F188DA /* 1002.mp4 */; };
+		EEC110B922A647BC00F188DA /* 1000.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = EEC1108522A647BA00F188DA /* 1000.mp4 */; };
+		EEC110BA22A647BC00F188DA /* 4005.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = EEC1108622A647BA00F188DA /* 4005.mp4 */; };
+		EEC110BB22A647BC00F188DA /* 4001.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = EEC1108722A647BA00F188DA /* 4001.mp4 */; };
+		EEC110BC22A647BC00F188DA /* 5007.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = EEC1108822A647BA00F188DA /* 5007.mp4 */; };
+		EEC110BD22A647BC00F188DA /* 4006.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = EEC1108922A647BA00F188DA /* 4006.mp4 */; };
+		EEC110BE22A647BC00F188DA /* 5005.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = EEC1108A22A647BB00F188DA /* 5005.mp4 */; };
+		EEC110BF22A647BC00F188DA /* 4009.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = EEC1108B22A647BB00F188DA /* 4009.mp4 */; };
+		EEC110C022A647BC00F188DA /* 1004.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = EEC1108C22A647BB00F188DA /* 1004.mp4 */; };
+		EEC110C122A647BC00F188DA /* 5009.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = EEC1108D22A647BB00F188DA /* 5009.mp4 */; };
+		EEC110C222A647BC00F188DA /* 3004.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = EEC1108E22A647BB00F188DA /* 3004.mp4 */; };
+		EEC110C322A647BC00F188DA /* 2003.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = EEC1108F22A647BB00F188DA /* 2003.mp4 */; };
+		EEC110C422A647BC00F188DA /* 1009.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = EEC1109022A647BB00F188DA /* 1009.mp4 */; };
+		EEC110C522A647BC00F188DA /* 3005.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = EEC1109122A647BB00F188DA /* 3005.mp4 */; };
+		EEC110C622A647BC00F188DA /* 4003.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = EEC1109222A647BB00F188DA /* 4003.mp4 */; };
+		EEC110C722A647BC00F188DA /* 3007.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = EEC1109322A647BB00F188DA /* 3007.mp4 */; };
+		EEC110C822A647BC00F188DA /* 6000.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = EEC1109422A647BB00F188DA /* 6000.mp4 */; };
+		EEC110C922A647BC00F188DA /* 5004.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = EEC1109522A647BB00F188DA /* 5004.mp4 */; };
+		EEC110CA22A647BC00F188DA /* 2002.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = EEC1109622A647BB00F188DA /* 2002.mp4 */; };
+		EEC110CB22A647BC00F188DA /* 2005.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = EEC1109722A647BB00F188DA /* 2005.mp4 */; };
+		EEC110CC22A647BC00F188DA /* 3006.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = EEC1109822A647BC00F188DA /* 3006.mp4 */; };
+		EEC110CD22A647BC00F188DA /* 3002.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = EEC1109922A647BC00F188DA /* 3002.mp4 */; };
+		EEC110CE22A647BC00F188DA /* 2006.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = EEC1109A22A647BC00F188DA /* 2006.mp4 */; };
+		EEC110CF22A647BC00F188DA /* 1005.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = EEC1109B22A647BC00F188DA /* 1005.mp4 */; };
+		EEC110D022A647BC00F188DA /* 5003.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = EEC1109C22A647BC00F188DA /* 5003.mp4 */; };
+		EEC110D122A647BC00F188DA /* 2004.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = EEC1109D22A647BC00F188DA /* 2004.mp4 */; };
+		EEC110D222A647BC00F188DA /* 5001.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = EEC1109E22A647BC00F188DA /* 5001.mp4 */; };
+		EEC110D322A647BC00F188DA /* 1003.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = EEC1109F22A647BC00F188DA /* 1003.mp4 */; };
+		EEC110D422A647BC00F188DA /* 1007.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = EEC110A022A647BC00F188DA /* 1007.mp4 */; };
+		EEC110D522A647BC00F188DA /* 3009.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = EEC110A122A647BC00F188DA /* 3009.mp4 */; };
+		EEC110D622A647BC00F188DA /* 5000.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = EEC110A222A647BC00F188DA /* 5000.mp4 */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		EEC10FE022A6192600F188DA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EEC10FC522A6192400F188DA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EEC10FCC22A6192400F188DA;
+			remoteInfo = AnxietyCollector;
+		};
+		EEC10FEB22A6192600F188DA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EEC10FC522A6192400F188DA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EEC10FCC22A6192400F188DA;
+			remoteInfo = AnxietyCollector;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		EEC10FCD22A6192400F188DA /* AnxietyCollector.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnxietyCollector.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EEC10FD022A6192400F188DA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		EEC10FD222A6192400F188DA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		EEC10FD422A6192600F188DA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EEC10FD722A6192600F188DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		EEC10FD922A6192600F188DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EEC10FDA22A6192600F188DA /* AnxietyCollector.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AnxietyCollector.entitlements; sourceTree = "<group>"; };
+		EEC10FDF22A6192600F188DA /* AnxietyCollectorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AnxietyCollectorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EEC10FE322A6192600F188DA /* AnxietyCollectorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnxietyCollectorTests.swift; sourceTree = "<group>"; };
+		EEC10FE522A6192600F188DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EEC10FEA22A6192600F188DA /* AnxietyCollectorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AnxietyCollectorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EEC10FEE22A6192600F188DA /* AnxietyCollectorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnxietyCollectorUITests.swift; sourceTree = "<group>"; };
+		EEC10FF022A6192600F188DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EEC10FFC22A61AD700F188DA /* GATTClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GATTClient.swift; sourceTree = "<group>"; };
+		EEC1106922A63EAE00F188DA /* VideoRuns.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoRuns.swift; sourceTree = "<group>"; };
+		EEC1106B22A6411C00F188DA /* MainCollectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionController.swift; sourceTree = "<group>"; };
+		EEC1106F22A647B900F188DA /* 5006.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 5006.mp4; sourceTree = "<group>"; };
+		EEC1107022A647B900F188DA /* 4007.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 4007.mp4; sourceTree = "<group>"; };
+		EEC1107122A647B900F188DA /* 3001.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 3001.mp4; sourceTree = "<group>"; };
+		EEC1107222A647B900F188DA /* 2000.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 2000.mp4; sourceTree = "<group>"; };
+		EEC1107322A647B900F188DA /* 3000.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 3000.mp4; sourceTree = "<group>"; };
+		EEC1107422A647B900F188DA /* 4000.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 4000.mp4; sourceTree = "<group>"; };
+		EEC1107522A647B900F188DA /* 6001.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 6001.mp4; sourceTree = "<group>"; };
+		EEC1107622A647B900F188DA /* 5002.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 5002.mp4; sourceTree = "<group>"; };
+		EEC1107722A647B900F188DA /* 1006.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 1006.mp4; sourceTree = "<group>"; };
+		EEC1107822A647BA00F188DA /* 3003.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 3003.mp4; sourceTree = "<group>"; };
+		EEC1107922A647BA00F188DA /* 4008.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 4008.mp4; sourceTree = "<group>"; };
+		EEC1107A22A647BA00F188DA /* 1008.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 1008.mp4; sourceTree = "<group>"; };
+		EEC1107B22A647BA00F188DA /* 2009.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 2009.mp4; sourceTree = "<group>"; };
+		EEC1107C22A647BA00F188DA /* 4004.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 4004.mp4; sourceTree = "<group>"; };
+		EEC1107D22A647BA00F188DA /* 2007.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 2007.mp4; sourceTree = "<group>"; };
+		EEC1107E22A647BA00F188DA /* 5008.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 5008.mp4; sourceTree = "<group>"; };
+		EEC1107F22A647BA00F188DA /* 4002.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 4002.mp4; sourceTree = "<group>"; };
+		EEC1108022A647BA00F188DA /* 2008.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 2008.mp4; sourceTree = "<group>"; };
+		EEC1108122A647BA00F188DA /* 3008.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 3008.mp4; sourceTree = "<group>"; };
+		EEC1108222A647BA00F188DA /* 2001.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 2001.mp4; sourceTree = "<group>"; };
+		EEC1108322A647BA00F188DA /* 1001.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 1001.mp4; sourceTree = "<group>"; };
+		EEC1108422A647BA00F188DA /* 1002.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 1002.mp4; sourceTree = "<group>"; };
+		EEC1108522A647BA00F188DA /* 1000.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 1000.mp4; sourceTree = "<group>"; };
+		EEC1108622A647BA00F188DA /* 4005.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 4005.mp4; sourceTree = "<group>"; };
+		EEC1108722A647BA00F188DA /* 4001.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 4001.mp4; sourceTree = "<group>"; };
+		EEC1108822A647BA00F188DA /* 5007.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 5007.mp4; sourceTree = "<group>"; };
+		EEC1108922A647BA00F188DA /* 4006.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 4006.mp4; sourceTree = "<group>"; };
+		EEC1108A22A647BB00F188DA /* 5005.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 5005.mp4; sourceTree = "<group>"; };
+		EEC1108B22A647BB00F188DA /* 4009.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 4009.mp4; sourceTree = "<group>"; };
+		EEC1108C22A647BB00F188DA /* 1004.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 1004.mp4; sourceTree = "<group>"; };
+		EEC1108D22A647BB00F188DA /* 5009.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 5009.mp4; sourceTree = "<group>"; };
+		EEC1108E22A647BB00F188DA /* 3004.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 3004.mp4; sourceTree = "<group>"; };
+		EEC1108F22A647BB00F188DA /* 2003.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 2003.mp4; sourceTree = "<group>"; };
+		EEC1109022A647BB00F188DA /* 1009.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 1009.mp4; sourceTree = "<group>"; };
+		EEC1109122A647BB00F188DA /* 3005.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 3005.mp4; sourceTree = "<group>"; };
+		EEC1109222A647BB00F188DA /* 4003.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 4003.mp4; sourceTree = "<group>"; };
+		EEC1109322A647BB00F188DA /* 3007.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 3007.mp4; sourceTree = "<group>"; };
+		EEC1109422A647BB00F188DA /* 6000.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 6000.mp4; sourceTree = "<group>"; };
+		EEC1109522A647BB00F188DA /* 5004.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 5004.mp4; sourceTree = "<group>"; };
+		EEC1109622A647BB00F188DA /* 2002.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 2002.mp4; sourceTree = "<group>"; };
+		EEC1109722A647BB00F188DA /* 2005.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 2005.mp4; sourceTree = "<group>"; };
+		EEC1109822A647BC00F188DA /* 3006.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 3006.mp4; sourceTree = "<group>"; };
+		EEC1109922A647BC00F188DA /* 3002.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 3002.mp4; sourceTree = "<group>"; };
+		EEC1109A22A647BC00F188DA /* 2006.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 2006.mp4; sourceTree = "<group>"; };
+		EEC1109B22A647BC00F188DA /* 1005.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 1005.mp4; sourceTree = "<group>"; };
+		EEC1109C22A647BC00F188DA /* 5003.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 5003.mp4; sourceTree = "<group>"; };
+		EEC1109D22A647BC00F188DA /* 2004.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 2004.mp4; sourceTree = "<group>"; };
+		EEC1109E22A647BC00F188DA /* 5001.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 5001.mp4; sourceTree = "<group>"; };
+		EEC1109F22A647BC00F188DA /* 1003.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 1003.mp4; sourceTree = "<group>"; };
+		EEC110A022A647BC00F188DA /* 1007.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 1007.mp4; sourceTree = "<group>"; };
+		EEC110A122A647BC00F188DA /* 3009.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 3009.mp4; sourceTree = "<group>"; };
+		EEC110A222A647BC00F188DA /* 5000.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 5000.mp4; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EEC10FCA22A6192400F188DA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EEC10FDC22A6192600F188DA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EEC10FE722A6192600F188DA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EEC10FC422A6192400F188DA = {
+			isa = PBXGroup;
+			children = (
+				EEC10FCF22A6192400F188DA /* AnxietyCollector */,
+				EEC10FE222A6192600F188DA /* AnxietyCollectorTests */,
+				EEC10FED22A6192600F188DA /* AnxietyCollectorUITests */,
+				EEC10FCE22A6192400F188DA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		EEC10FCE22A6192400F188DA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EEC10FCD22A6192400F188DA /* AnxietyCollector.app */,
+				EEC10FDF22A6192600F188DA /* AnxietyCollectorTests.xctest */,
+				EEC10FEA22A6192600F188DA /* AnxietyCollectorUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EEC10FCF22A6192400F188DA /* AnxietyCollector */ = {
+			isa = PBXGroup;
+			children = (
+				EEC10FFE22A62B2F00F188DA /* Videos */,
+				EEC10FD022A6192400F188DA /* AppDelegate.swift */,
+				EEC10FD222A6192400F188DA /* ViewController.swift */,
+				EEC10FD422A6192600F188DA /* Assets.xcassets */,
+				EEC10FD622A6192600F188DA /* Main.storyboard */,
+				EEC10FD922A6192600F188DA /* Info.plist */,
+				EEC10FDA22A6192600F188DA /* AnxietyCollector.entitlements */,
+				EEC10FFC22A61AD700F188DA /* GATTClient.swift */,
+				EEC1106922A63EAE00F188DA /* VideoRuns.swift */,
+				EEC1106B22A6411C00F188DA /* MainCollectionController.swift */,
+			);
+			path = AnxietyCollector;
+			sourceTree = "<group>";
+		};
+		EEC10FE222A6192600F188DA /* AnxietyCollectorTests */ = {
+			isa = PBXGroup;
+			children = (
+				EEC10FE322A6192600F188DA /* AnxietyCollectorTests.swift */,
+				EEC10FE522A6192600F188DA /* Info.plist */,
+			);
+			path = AnxietyCollectorTests;
+			sourceTree = "<group>";
+		};
+		EEC10FED22A6192600F188DA /* AnxietyCollectorUITests */ = {
+			isa = PBXGroup;
+			children = (
+				EEC10FEE22A6192600F188DA /* AnxietyCollectorUITests.swift */,
+				EEC10FF022A6192600F188DA /* Info.plist */,
+			);
+			path = AnxietyCollectorUITests;
+			sourceTree = "<group>";
+		};
+		EEC10FFE22A62B2F00F188DA /* Videos */ = {
+			isa = PBXGroup;
+			children = (
+				EEC1108522A647BA00F188DA /* 1000.mp4 */,
+				EEC1108322A647BA00F188DA /* 1001.mp4 */,
+				EEC1108422A647BA00F188DA /* 1002.mp4 */,
+				EEC1109F22A647BC00F188DA /* 1003.mp4 */,
+				EEC1108C22A647BB00F188DA /* 1004.mp4 */,
+				EEC1109B22A647BC00F188DA /* 1005.mp4 */,
+				EEC1107722A647B900F188DA /* 1006.mp4 */,
+				EEC110A022A647BC00F188DA /* 1007.mp4 */,
+				EEC1107A22A647BA00F188DA /* 1008.mp4 */,
+				EEC1109022A647BB00F188DA /* 1009.mp4 */,
+				EEC1107222A647B900F188DA /* 2000.mp4 */,
+				EEC1108222A647BA00F188DA /* 2001.mp4 */,
+				EEC1109622A647BB00F188DA /* 2002.mp4 */,
+				EEC1108F22A647BB00F188DA /* 2003.mp4 */,
+				EEC1109D22A647BC00F188DA /* 2004.mp4 */,
+				EEC1109722A647BB00F188DA /* 2005.mp4 */,
+				EEC1109A22A647BC00F188DA /* 2006.mp4 */,
+				EEC1107D22A647BA00F188DA /* 2007.mp4 */,
+				EEC1108022A647BA00F188DA /* 2008.mp4 */,
+				EEC1107B22A647BA00F188DA /* 2009.mp4 */,
+				EEC1107322A647B900F188DA /* 3000.mp4 */,
+				EEC1107122A647B900F188DA /* 3001.mp4 */,
+				EEC1109922A647BC00F188DA /* 3002.mp4 */,
+				EEC1107822A647BA00F188DA /* 3003.mp4 */,
+				EEC1108E22A647BB00F188DA /* 3004.mp4 */,
+				EEC1109122A647BB00F188DA /* 3005.mp4 */,
+				EEC1109822A647BC00F188DA /* 3006.mp4 */,
+				EEC1109322A647BB00F188DA /* 3007.mp4 */,
+				EEC1108122A647BA00F188DA /* 3008.mp4 */,
+				EEC110A122A647BC00F188DA /* 3009.mp4 */,
+				EEC1107422A647B900F188DA /* 4000.mp4 */,
+				EEC1108722A647BA00F188DA /* 4001.mp4 */,
+				EEC1107F22A647BA00F188DA /* 4002.mp4 */,
+				EEC1109222A647BB00F188DA /* 4003.mp4 */,
+				EEC1107C22A647BA00F188DA /* 4004.mp4 */,
+				EEC1108622A647BA00F188DA /* 4005.mp4 */,
+				EEC1108922A647BA00F188DA /* 4006.mp4 */,
+				EEC1107022A647B900F188DA /* 4007.mp4 */,
+				EEC1107922A647BA00F188DA /* 4008.mp4 */,
+				EEC1108B22A647BB00F188DA /* 4009.mp4 */,
+				EEC110A222A647BC00F188DA /* 5000.mp4 */,
+				EEC1109E22A647BC00F188DA /* 5001.mp4 */,
+				EEC1107622A647B900F188DA /* 5002.mp4 */,
+				EEC1109C22A647BC00F188DA /* 5003.mp4 */,
+				EEC1109522A647BB00F188DA /* 5004.mp4 */,
+				EEC1108A22A647BB00F188DA /* 5005.mp4 */,
+				EEC1106F22A647B900F188DA /* 5006.mp4 */,
+				EEC1108822A647BA00F188DA /* 5007.mp4 */,
+				EEC1107E22A647BA00F188DA /* 5008.mp4 */,
+				EEC1108D22A647BB00F188DA /* 5009.mp4 */,
+				EEC1109422A647BB00F188DA /* 6000.mp4 */,
+				EEC1107522A647B900F188DA /* 6001.mp4 */,
+			);
+			path = Videos;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EEC10FCC22A6192400F188DA /* AnxietyCollector */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EEC10FF322A6192600F188DA /* Build configuration list for PBXNativeTarget "AnxietyCollector" */;
+			buildPhases = (
+				EEC10FC922A6192400F188DA /* Sources */,
+				EEC10FCA22A6192400F188DA /* Frameworks */,
+				EEC10FCB22A6192400F188DA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AnxietyCollector;
+			productName = AnxietyCollector;
+			productReference = EEC10FCD22A6192400F188DA /* AnxietyCollector.app */;
+			productType = "com.apple.product-type.application";
+		};
+		EEC10FDE22A6192600F188DA /* AnxietyCollectorTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EEC10FF622A6192600F188DA /* Build configuration list for PBXNativeTarget "AnxietyCollectorTests" */;
+			buildPhases = (
+				EEC10FDB22A6192600F188DA /* Sources */,
+				EEC10FDC22A6192600F188DA /* Frameworks */,
+				EEC10FDD22A6192600F188DA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EEC10FE122A6192600F188DA /* PBXTargetDependency */,
+			);
+			name = AnxietyCollectorTests;
+			productName = AnxietyCollectorTests;
+			productReference = EEC10FDF22A6192600F188DA /* AnxietyCollectorTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		EEC10FE922A6192600F188DA /* AnxietyCollectorUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EEC10FF922A6192600F188DA /* Build configuration list for PBXNativeTarget "AnxietyCollectorUITests" */;
+			buildPhases = (
+				EEC10FE622A6192600F188DA /* Sources */,
+				EEC10FE722A6192600F188DA /* Frameworks */,
+				EEC10FE822A6192600F188DA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EEC10FEC22A6192600F188DA /* PBXTargetDependency */,
+			);
+			name = AnxietyCollectorUITests;
+			productName = AnxietyCollectorUITests;
+			productReference = EEC10FEA22A6192600F188DA /* AnxietyCollectorUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EEC10FC522A6192400F188DA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1020;
+				LastUpgradeCheck = 1020;
+				ORGANIZATIONNAME = Team2;
+				TargetAttributes = {
+					EEC10FCC22A6192400F188DA = {
+						CreatedOnToolsVersion = 10.2.1;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 1;
+							};
+						};
+					};
+					EEC10FDE22A6192600F188DA = {
+						CreatedOnToolsVersion = 10.2.1;
+						TestTargetID = EEC10FCC22A6192400F188DA;
+					};
+					EEC10FE922A6192600F188DA = {
+						CreatedOnToolsVersion = 10.2.1;
+						TestTargetID = EEC10FCC22A6192400F188DA;
+					};
+				};
+			};
+			buildConfigurationList = EEC10FC822A6192400F188DA /* Build configuration list for PBXProject "AnxietyCollector" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EEC10FC422A6192400F188DA;
+			productRefGroup = EEC10FCE22A6192400F188DA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EEC10FCC22A6192400F188DA /* AnxietyCollector */,
+				EEC10FDE22A6192600F188DA /* AnxietyCollectorTests */,
+				EEC10FE922A6192600F188DA /* AnxietyCollectorUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EEC10FCB22A6192400F188DA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EEC10FD522A6192600F188DA /* Assets.xcassets in Resources */,
+				EEC10FD822A6192600F188DA /* Main.storyboard in Resources */,
+				EEC110D122A647BC00F188DA /* 2004.mp4 in Resources */,
+				EEC110B822A647BC00F188DA /* 1002.mp4 in Resources */,
+				EEC110A422A647BC00F188DA /* 4007.mp4 in Resources */,
+				EEC110CC22A647BC00F188DA /* 3006.mp4 in Resources */,
+				EEC110A822A647BC00F188DA /* 4000.mp4 in Resources */,
+				EEC110C722A647BC00F188DA /* 3007.mp4 in Resources */,
+				EEC110CF22A647BC00F188DA /* 1005.mp4 in Resources */,
+				EEC110C422A647BC00F188DA /* 1009.mp4 in Resources */,
+				EEC110CB22A647BC00F188DA /* 2005.mp4 in Resources */,
+				EEC110C622A647BC00F188DA /* 4003.mp4 in Resources */,
+				EEC110BB22A647BC00F188DA /* 4001.mp4 in Resources */,
+				EEC110AA22A647BC00F188DA /* 5002.mp4 in Resources */,
+				EEC110AD22A647BC00F188DA /* 4008.mp4 in Resources */,
+				EEC110D422A647BC00F188DA /* 1007.mp4 in Resources */,
+				EEC110D522A647BC00F188DA /* 3009.mp4 in Resources */,
+				EEC110C122A647BC00F188DA /* 5009.mp4 in Resources */,
+				EEC110CD22A647BC00F188DA /* 3002.mp4 in Resources */,
+				EEC110C522A647BC00F188DA /* 3005.mp4 in Resources */,
+				EEC110B322A647BC00F188DA /* 4002.mp4 in Resources */,
+				EEC110AC22A647BC00F188DA /* 3003.mp4 in Resources */,
+				EEC110A722A647BC00F188DA /* 3000.mp4 in Resources */,
+				EEC110B422A647BC00F188DA /* 2008.mp4 in Resources */,
+				EEC110C022A647BC00F188DA /* 1004.mp4 in Resources */,
+				EEC110BF22A647BC00F188DA /* 4009.mp4 in Resources */,
+				EEC110AE22A647BC00F188DA /* 1008.mp4 in Resources */,
+				EEC110A922A647BC00F188DA /* 6001.mp4 in Resources */,
+				EEC110A322A647BC00F188DA /* 5006.mp4 in Resources */,
+				EEC110A522A647BC00F188DA /* 3001.mp4 in Resources */,
+				EEC110C322A647BC00F188DA /* 2003.mp4 in Resources */,
+				EEC110D222A647BC00F188DA /* 5001.mp4 in Resources */,
+				EEC110D622A647BC00F188DA /* 5000.mp4 in Resources */,
+				EEC110B522A647BC00F188DA /* 3008.mp4 in Resources */,
+				EEC110BA22A647BC00F188DA /* 4005.mp4 in Resources */,
+				EEC110A622A647BC00F188DA /* 2000.mp4 in Resources */,
+				EEC110C922A647BC00F188DA /* 5004.mp4 in Resources */,
+				EEC110B622A647BC00F188DA /* 2001.mp4 in Resources */,
+				EEC110CA22A647BC00F188DA /* 2002.mp4 in Resources */,
+				EEC110AB22A647BC00F188DA /* 1006.mp4 in Resources */,
+				EEC110C822A647BC00F188DA /* 6000.mp4 in Resources */,
+				EEC110B222A647BC00F188DA /* 5008.mp4 in Resources */,
+				EEC110AF22A647BC00F188DA /* 2009.mp4 in Resources */,
+				EEC110BD22A647BC00F188DA /* 4006.mp4 in Resources */,
+				EEC110BC22A647BC00F188DA /* 5007.mp4 in Resources */,
+				EEC110B722A647BC00F188DA /* 1001.mp4 in Resources */,
+				EEC110B022A647BC00F188DA /* 4004.mp4 in Resources */,
+				EEC110C222A647BC00F188DA /* 3004.mp4 in Resources */,
+				EEC110B122A647BC00F188DA /* 2007.mp4 in Resources */,
+				EEC110CE22A647BC00F188DA /* 2006.mp4 in Resources */,
+				EEC110D322A647BC00F188DA /* 1003.mp4 in Resources */,
+				EEC110B922A647BC00F188DA /* 1000.mp4 in Resources */,
+				EEC110BE22A647BC00F188DA /* 5005.mp4 in Resources */,
+				EEC110D022A647BC00F188DA /* 5003.mp4 in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EEC10FDD22A6192600F188DA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EEC10FE822A6192600F188DA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EEC10FC922A6192400F188DA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EEC1106D22A6411C00F188DA /* MainCollectionController.swift in Sources */,
+				EEC10FFD22A61AD700F188DA /* GATTClient.swift in Sources */,
+				EEC10FD322A6192400F188DA /* ViewController.swift in Sources */,
+				EEC10FD122A6192400F188DA /* AppDelegate.swift in Sources */,
+				EEC1106A22A63EAE00F188DA /* VideoRuns.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EEC10FDB22A6192600F188DA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EEC10FE422A6192600F188DA /* AnxietyCollectorTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EEC10FE622A6192600F188DA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EEC10FEF22A6192600F188DA /* AnxietyCollectorUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EEC10FE122A6192600F188DA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EEC10FCC22A6192400F188DA /* AnxietyCollector */;
+			targetProxy = EEC10FE022A6192600F188DA /* PBXContainerItemProxy */;
+		};
+		EEC10FEC22A6192600F188DA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EEC10FCC22A6192400F188DA /* AnxietyCollector */;
+			targetProxy = EEC10FEB22A6192600F188DA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		EEC10FD622A6192600F188DA /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EEC10FD722A6192600F188DA /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		EEC10FF122A6192600F188DA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		EEC10FF222A6192600F188DA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		EEC10FF422A6192600F188DA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = AnxietyCollector/AnxietyCollector.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = AnxietyCollector/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.team2.AnxietyCollector;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		EEC10FF522A6192600F188DA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = AnxietyCollector/AnxietyCollector.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = AnxietyCollector/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.team2.AnxietyCollector;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		EEC10FF722A6192600F188DA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = AnxietyCollectorTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.team2.AnxietyCollectorTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AnxietyCollector.app/Contents/MacOS/AnxietyCollector";
+			};
+			name = Debug;
+		};
+		EEC10FF822A6192600F188DA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = AnxietyCollectorTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.team2.AnxietyCollectorTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AnxietyCollector.app/Contents/MacOS/AnxietyCollector";
+			};
+			name = Release;
+		};
+		EEC10FFA22A6192600F188DA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = AnxietyCollectorUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.team2.AnxietyCollectorUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = AnxietyCollector;
+			};
+			name = Debug;
+		};
+		EEC10FFB22A6192600F188DA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = AnxietyCollectorUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.team2.AnxietyCollectorUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = AnxietyCollector;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EEC10FC822A6192400F188DA /* Build configuration list for PBXProject "AnxietyCollector" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EEC10FF122A6192600F188DA /* Debug */,
+				EEC10FF222A6192600F188DA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EEC10FF322A6192600F188DA /* Build configuration list for PBXNativeTarget "AnxietyCollector" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EEC10FF422A6192600F188DA /* Debug */,
+				EEC10FF522A6192600F188DA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EEC10FF622A6192600F188DA /* Build configuration list for PBXNativeTarget "AnxietyCollectorTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EEC10FF722A6192600F188DA /* Debug */,
+				EEC10FF822A6192600F188DA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EEC10FF922A6192600F188DA /* Build configuration list for PBXNativeTarget "AnxietyCollectorUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EEC10FFA22A6192600F188DA /* Debug */,
+				EEC10FFB22A6192600F188DA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EEC10FC522A6192400F188DA /* Project object */;
+}
