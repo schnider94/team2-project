@@ -2,9 +2,7 @@ package amc.team2.project
 
 
 import android.app.AlertDialog
-import android.app.Dialog
 import android.content.*
-import android.content.ContentValues.TAG
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.util.Log
@@ -17,7 +15,6 @@ import android.widget.TextView
 import java.util.*
 import kotlin.concurrent.fixedRateTimer
 import kotlin.concurrent.schedule
-import kotlin.concurrent.timer
 
 
 /**
@@ -32,8 +29,8 @@ class MainFragment : Fragment() {
     private var broadcastManager: LocalBroadcastManager? = null
 
     private lateinit var anxietyLevelLabel: TextView
-    private lateinit var heartrateLabel: TextView
-    private lateinit var skinresponseLabel: TextView
+    private lateinit var heartRateLabel: TextView
+    private lateinit var skinResponseLabel: TextView
 
     override fun onCreateView(inflater: LayoutInflater,
                               container: ViewGroup?,
@@ -47,8 +44,8 @@ class MainFragment : Fragment() {
         startBackgroundButton?.setOnClickListener(startBackground)
 
         anxietyLevelLabel = view.findViewById(R.id.anxiety_level_number)
-        heartrateLabel = view.findViewById(R.id.heart_rate_number)
-        skinresponseLabel = view.findViewById(R.id.skin_response_number)
+        heartRateLabel = view.findViewById(R.id.heart_rate_number)
+        skinResponseLabel = view.findViewById(R.id.skin_response_number)
 
         val deviceTextView: TextView = view.findViewById(R.id.connected_device)
         val deviceInfo = getDeviceInfo(false)
@@ -145,7 +142,7 @@ class MainFragment : Fragment() {
         override fun onReceive(context: Context, intent: Intent) {
             if (intent.action == ProcessService.ACTION_PONG) {
                 backgroundServiceIsRunning = true
-                // Log.v(this@MainFragment::class.simpleName, "Received Pong")
+                // Log.v(TAG, "Received Pong")
             }
             if (intent.action == ProcessService.ACTION_VALUES) {
                 val level = intent.getIntExtra("level", 0)
@@ -153,8 +150,8 @@ class MainFragment : Fragment() {
                 val heartrate = intent.getIntExtra("heartrate", 0)
 
                 anxietyLevelLabel.text = level.toString()
-                skinresponseLabel.text = gsr.toString()
-                heartrateLabel.text = heartrate.toString()
+                skinResponseLabel.text = gsr.toString()
+                heartRateLabel.text = heartrate.toString()
             }
         }
     }

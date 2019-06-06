@@ -1,11 +1,12 @@
 #include <Wire.h>
 #include <ArduinoBLE.h>
+#include <Streaming.h>
 
 const int GSR=A0;
 int sensorValue=0;
 int gsr_average=0;
 
-BLEService anxietyService("1337D");
+BLEService anxietyService("337D");
 
 // create characteristics and allow remote device to read and get notifications:
 BLEIntCharacteristic gsr("1A11", BLERead | BLENotify);
@@ -58,17 +59,16 @@ void updateGSR() {
   }
   gsr_average = sum/10;
 
-  Serial.print("SR: "); // print it
-  Serial.println(gsr_average);
   gsr.writeValue(gsr_average); 
+  Serial << "SR: " << gsr_average << endl;
 }
 
 void updateHeartrate() {
   Wire.requestFrom(0xA0 >> 1, 1);    // request 1 bytes from slave device
   while(Wire.available()) {          // slave may send less than requested
      int rate = (int) Wire.read();   // receive heart rate value (a byte)
-     Serial.print("HR: "); // print it
-     Serial.println(rate);
+
      heartrate.writeValue(rate); 
+     Serial << "HR: " << rate << endl;
   }
 }

@@ -11,29 +11,34 @@ import android.content.BroadcastReceiver
 import android.content.ContentValues.TAG
 import android.content.Context
 import android.content.IntentFilter
-import java.lang.Math.ceil
 import java.util.*
 import kotlin.concurrent.timerTask
+import kotlin.math.floor
 
 
 class ProcessService : IntentService("ProcessService") {
 
     private var isRunning = false
-
-    private val SERVICE_ID      = UUID.fromString("00000000-0000-0000-0000-00000000337d")
-    private val GSR_ID          = UUID.fromString("00001a11-0000-1000-8000-00805f9b34fb")
-    private val HEARTRATE_ID    = UUID.fromString("00001a12-0000-1000-8000-00805f9b34fb")
+    private var isProcessing = false
 
     private var currentLevel = 0
     private var currentGSR = 0
     private var currentHeartRate = 0
 
     private var characteristics: List<BluetoothGattCharacteristic> = ArrayList()
+    private var heartRateBuffer: MutableList<Int> = mutableListOf()
+    private var gsrBuffer: MutableList<Int> = mutableListOf()
 
     companion object {
         val ACTION_PING = ProcessService::class.simpleName + ".PING"
         val ACTION_PONG = ProcessService::class.simpleName + ".PONG"
         val ACTION_VALUES = ProcessService::class.simpleName + ".VALUES"
+
+        val SERVICE_UUID      = UUID.fromString("00000000-0000-0000-0000-00000000337d")!!
+        val GSR_UUID          = UUID.fromString("00001a11-0000-1000-8000-00805f9b34fb")!!
+        val HEARTRATE_UUID    = UUID.fromString("00001a12-0000-1000-8000-00805f9b34fb")!!
+
+        var TIMEPOINTS = 10
     }
 
     override fun onHandleIntent(workIntent: Intent) {
@@ -41,7 +46,7 @@ class ProcessService : IntentService("ProcessService") {
 
         Log.d(this::class.simpleName, "Start Loop")
         mainLoop(workIntent.getStringExtra("device_name"), workIntent.getStringExtra("device_address"))
-        Log.d(this::class.simpleName, "ENDED Loop")
+        Log.d(this::class.simpleName, "Ended Loop")
     }
 
     override fun onDestroy() {
@@ -56,24 +61,20 @@ class ProcessService : IntentService("ProcessService") {
         val gatt = device.connectGatt(this, false, bleCallback)
 
         isRunning = true
-        Timer().scheduleAtFixedRate(
+        val timer = Timer()
+        timer.scheduleAtFixedRate(
             timerTask {
-                loop(gatt)
-
-                if (!isRunning) {
-                    gatt.disconnect()
-                    gatt.close()
-                    this.cancel()
+                for (characteristic in characteristics) {
+                    gatt.readCharacteristic(characteristic)
                 }
             }, 0, 500
         )
         while(isRunning);
-    }
 
-    private fun loop(gatt: BluetoothGatt) {
-        for (characteristic in this.characteristics) {
-            gatt.readCharacteristic(characteristic)
-        }
+        timer.cancel()
+        timer.purge()
+        gatt.disconnect()
+        gatt.close()
     }
 
     // Open App directly
@@ -98,7 +99,7 @@ class ProcessService : IntentService("ProcessService") {
         this.stopSelf()
     }
 
-    private fun sendValuesToScreen(heartrate: Int, gsr: Int, level: Int) {
+    private fun broadcastValues(heartrate: Int, gsr: Int, level: Int) {
         val manager = LocalBroadcastManager.getInstance(applicationContext)
         val intent = Intent(ACTION_VALUES)
         intent.putExtra("level", level)
@@ -111,36 +112,11 @@ class ProcessService : IntentService("ProcessService") {
     private val mReceiver = object : BroadcastReceiver() {
         override fun onReceive(context: Context, intent: Intent) {
             if (intent.action == ACTION_PING) {
-                // Log.v(this@ProcessService::class.simpleName, "Received Ping")
+                // Log.v(TAG, "Received Ping")
                 val manager = LocalBroadcastManager.getInstance(applicationContext)
                 manager.sendBroadcast(Intent(ACTION_PONG))
             }
         }
-    }
-
-    fun process(characteristic: BluetoothGattCharacteristic) {
-        val value = characteristic.getIntValue(BluetoothGattCharacteristic.FORMAT_UINT16, 0)
-        when (characteristic.uuid) {
-            GSR_ID -> {
-                currentGSR = value
-                Log.d(TAG, "GSR: $value")
-            }
-            HEARTRATE_ID -> {
-                currentHeartRate = value
-                Log.d(TAG, "HR: $value")
-            }
-        }
-
-        // TODO: process Sensor data
-        if (currentHeartRate != 0) {
-            currentLevel = currentGSR / currentHeartRate
-        } else {
-            currentLevel = 0
-        }
-        sendValuesToScreen(currentHeartRate, currentGSR, currentLevel)
-
-        // splashScreen(1)
-        // sendAnxietyAlarm(1)
     }
 
     private var connectionState = STATE_DISCONNECTED
@@ -168,8 +144,8 @@ class ProcessService : IntentService("ProcessService") {
         override fun onServicesDiscovered(gatt: BluetoothGatt?, status: Int) {
             super.onServicesDiscovered(gatt, status)
             for (service in gatt!!.services) {
-                Log.d(TAG, service.uuid.toString())
-                if (service.uuid == SERVICE_ID) {
+                Log.v(TAG, service.uuid.toString())
+                if (service.uuid == SERVICE_UUID) {
                     characteristics = service.characteristics
                 }
             }
@@ -186,6 +162,55 @@ class ProcessService : IntentService("ProcessService") {
                 BluetoothGatt.GATT_SUCCESS -> {
                     process(characteristic)
                 }
+            }
+        }
+    }
+
+    fun process(characteristic: BluetoothGattCharacteristic) {
+        val value = characteristic.getIntValue(BluetoothGattCharacteristic.FORMAT_UINT16, 0)
+        when (characteristic.uuid) {
+            GSR_UUID -> {
+                currentGSR = value
+                gsrBuffer.add(value)
+                Log.v(TAG, "GSR: $value")
+            }
+            HEARTRATE_UUID -> {
+                currentHeartRate = value
+                heartRateBuffer.add(value)
+                Log.v(TAG, "HR: $value")
+            }
+        }
+
+        if (heartRateBuffer.size >= TIMEPOINTS && gsrBuffer.size >= TIMEPOINTS && !isProcessing) {
+            isProcessing = true
+            val heartRates = heartRateBuffer
+            val gsrs = gsrBuffer
+
+            // TODO: Start processing
+            Log.v(TAG, "Start Processing")
+            val heartRateAVG = heartRates.average()
+            val gsrAVG =gsrs.average()
+            currentLevel = floor((gsrAVG + heartRateAVG) / 100).toInt()
+            Log.v(TAG, "Current Level is $currentLevel")
+            // END Processing
+
+            heartRateBuffer.clear()
+            gsrBuffer.clear()
+            isProcessing = false
+        }
+        broadcastValues(currentHeartRate, currentGSR, currentLevel)
+
+        when (currentLevel) {
+            1 -> {
+                Log.v(TAG, "Level 1 Anxiety detected -> Notify")
+                sendAnxietyAlarm(currentLevel)
+            }
+            2 -> {
+                Log.v(TAG, "Level 2 Anxiety detected -> Splash")
+                splashScreen(currentLevel)
+            }
+            else -> {
+                Log.v(TAG, "No Anxiety detected")
             }
         }
     }
