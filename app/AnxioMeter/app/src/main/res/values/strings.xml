@@ -12,4 +12,6 @@
     <string name="refresh">Refresh</string>
     <string name="connected_device">Connected Device</string>
     <string name="background">background</string>
+    <string name="signs_anxiety">Signs of anxiety</string>
+    <string name="no_signs_anxiety">No signs of anxiety</string>
 </resources>

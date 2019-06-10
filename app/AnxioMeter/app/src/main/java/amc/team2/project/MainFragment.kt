@@ -149,7 +149,11 @@ class MainFragment : Fragment() {
                 val gsr = intent.getIntExtra("gsr", 0)
                 val heartrate = intent.getIntExtra("heartrate", 0)
 
-                anxietyLevelLabel.text = level.toString()
+                if (level == 1) {
+                    anxietyLevelLabel.text = getString(R.string.signs_anxiety)
+                } else {
+                    anxietyLevelLabel.text = getString(R.string.no_signs_anxiety)
+                }
                 skinResponseLabel.text = gsr.toString()
                 heartRateLabel.text = heartrate.toString()
             }
